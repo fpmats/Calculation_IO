@@ -1,11 +1,27 @@
 Repository for the inputs and outputs for all VASP calculations for the following publication: 
   Tina Mihm, Kasidet Jing Trerayapiwat, Xinxin Li, Xuedan Ma, and Sahar Sharifzadeh "Sulfur and sulfur-oxide compounds as potential optically active defects on SWCNTs" Under review 
 
-The repository contains the following: 
+Each calculation directory contains the following files: 
 1. INCAR - VASP input file with all flags used to run each calculation 
 2. POSCAR - VASP file with the structure information 
 3. KPOINT - VASP input file with the k-mesh grid information including k-points used 
 4. OUTCAR - VASP output with all details on the completed calculation 
+5. vasp.out - VASP output with all output information and errors of the calculation while running 
+6. bs.json - json file that contains the bandstructure information used for graphing the 
+   band structure (only in the 03_BS directory) 
 
-the file system is as follows: 
-1. 
+The top directories are named after the defect and binding configuration for each defect.
+All sub directories are as follows: 
+ - "d-pos" - calculation information for the dopants bound purpendicular to the tube axis, i.e. "d" orientation 
+ - "l-pos" - calculation information for the dopants bound along the tube axis, i.e. "l" orientation 
+ - "01_AOPT" - calculation details for the atomic optomization step, step 1
+ - "02_SCF" - calculation details for the SCF step, step 2 
+ - "03_BS" - calculation details for the bandstructure step, step 3
+
+The "Defects" directory contains the calculation details for the lone defect without the CNT. 
+ - It contains the same files as listed above. 
+
+The "Scripts" directory contains two analysis scripts: 
+ - "Plot_BS_graph.py" - uses the generated bs.json file and graphs the band structure as a png
+ - "Plot_PDOS_graph.py" - Reads in the DOSCAR and projects the orbitals to generate a PDOS as a png
+
