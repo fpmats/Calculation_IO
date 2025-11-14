@@ -3,30 +3,16 @@
 #PBS -N mace-test
 #PBS -A NNFF_mem_sys
 #PBS -l select=1:ngpus=1
-###PBS -M tmihm@bu.edu # Optional if you require email
+###PBS -M YOUR-EMAIL# Optional if you require email
 ###PBS -m bea                 # Optional if you require email
 #PBS -l walltime=00:30:00
-
-#export PATH=$PATH:/lcrc/project/2D_dynamics/jing/software/miniconda3/bin/
-#which conda
-#echo path: $PATH
 
 cd $PBS_O_WORKDIR
 echo Working directory is $PBS_O_WORKDIR
 
-#source activate /lcrc/project/2D_dynamics/jing/software/miniconda3/envs/mace-general/
-#source activate /lcrc/project/2D_dynamics/jing/software/miniconda3/envs/NNFF-MACE_main/
-
-#export DATA=/lcrc/project/NNFF_mem_sys/workflow_share/01_mace_training/dataset/
-#export DATA=/lcrc/project/2D_dynamics/jing/dataset/nickelates/test_trains/combine_AIMD_metastable/old/
-
 conda env list
-##conda init
-#conda activate ase_mace_env
 source activate /home/ac.tmihm/miniconda3/envs/ase_mace_env
 echo $CONDA_DEFAULT_ENV
-
-##PATH="/home/ac.tmihm/GeSe/MACE-FF/Original-AvSq-ISIF8/01_mace_training"
 
 mace_run_train \
     --name="model" \
