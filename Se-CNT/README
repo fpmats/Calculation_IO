@@ -1,1 +1,38 @@
+Repository for the inputs and outputs for all VASP and BerkelyGW calculations for the following publication: 
+  Tina Mihm, Kasidet Jing Trerayapiwat, Ahmad Sameer Nabi, Xuedan Ma, and Sahar Sharifzadeh "Enhanced spin-orbit coupling in covalently doped (6,5) single walled carbon nanotubes with atomic defects" Under review 
+
+The repository is divided into systems: 
+1. Pristine - Pristine CNT with no dopants
+2. Episelenide-d - Se is in the D position with the Se-C bonds perpendicular to the tube's axis
+3. Epselenide-l-in_line - Se is in the L position with the Se-C bonds parallel to the tube's axis and in-line wtih the tube's chirality
+4. Epselenide-l-off_set - Se is in the L position with the Se-C bonds parallel to the tube's axis and off-set from the tube's chirality
+
+"VASP" directories contains all inputs/outputs for VASP DFT calculations
+"BGW" directories contains all inputs/outputs for BerkelyGW GW+BSE calculations
+
+All VASP sub directories are as follows: 
+ - "01-AOPT" - calculation details for the atomic optomization step, step 1
+ - "02-SCF" - calculation details for the SCF step, step 2 
+ - "03-BS" - calculation details for the bandstructure step, step 3
+ - "04-SOC" - calculation details for the sin-orbit coupling (SOC) step, step 4
+ - "04-No-SOC-BS" - calculation details for the non-collinear, no SOC bandstructure step, step 4.a
+ - "04-SOC-BS" - calculation details for the non-collinear, SOC bandstructure step, step 4.b
+
+Each VASP calculation directory contains the following files: 
+1. INCAR - VASP input file with all flags used to run each calculation 
+2. POSCAR - VASP file with the structure information 
+3. KPOINT - VASP input file with the k-mesh grid information including k-points used 
+4. OUTCAR - VASP output with all details on the completed calculation 
+5. vasp.out - VASP output with all output information and errors of the calculation while running 
+6. bs.json - json file that contains the bandstructure information used for graphing the band structure (only in the 03-BS, 04-No-SOC-BS and 04-SOC-BS directory) 
+
+All BGW sub directories are as follows: 
+- "ESPRESSO-QE-7.2" - all Quantum Espresso DFT calculation inputs used to get the wavefunction files needed for BGW 
+-  "5-epsilon" - inputs/outputs and log files for the epison GW step
+- "6-sigma" - input/outputs and log files for the sigma GW step
+-  "7-kernel" - input/outputs and log files for the kernel BSE step
+- "8-absorption" - input/outputs and log files for the absorption BSE step
+- "9-SummariseEig" - input/outputs for the eigenvalue analysis based on output from previous steps
+
+
 
